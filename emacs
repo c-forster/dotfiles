@@ -183,3 +183,11 @@
 		      (wc-mode)
 		      (flyspell-mode)
 		      (longlines-mode))))
+
+;; adding respositories for emacs 24; csf-7/4/12
+;; Add the original Emacs Lisp Package Archive
+(add-to-list 'package-archives
+             '("elpa" . "http://tromey.com/elpa/"))
+;; Add the user-contributed repository
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))

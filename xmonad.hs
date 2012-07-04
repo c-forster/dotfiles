@@ -11,6 +11,7 @@ import XMonad
 import XMonad.Actions.CycleWS
 
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops   -- fullscreenEventHook fixes chrome fullscreen
 import XMonad.Hooks.FadeInactive
@@ -58,7 +59,14 @@ main = do
 				 , ("<XF86AudioLowerVolume>", spawn "amixer -q set Master 5%- unmute")
 				 , ("<XF86AudioRaiseVolume>", spawn "amixer -q set Master 5%+ unmute")
                                  ]
- 
+
+myManageHook :: ManageHook
+myManageHook = composeAll . concat $
+             [ [className =? c     --> doCenterFloat | c <- myFloats ]
+             ]
+             where                                  
+             myFloats = ["feh", "wicd-client.py","wicd-gtk.py", "wicd","wicd-client","monitor","monitor.py"]
+                                 
 myLayout = tiled ||| Mirror tiled ||| Full  
  where  
       -- default tiling algorithm partitions the screen into two panes  

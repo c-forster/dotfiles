@@ -12,12 +12,15 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # GTK and qt apps.
 export GTK2_RC_FILES="/home/chris/.gtkrc-2.0"
 
+############################################################
 #
 # Applets in trayer
 #
-# The networkmanager applet
-nm-applet --sm-disable &
-gnome-power-manager &
+############################################################
+# wicd trayer 
+wicd-client --tray &
+
+#gnome-power-manager &
 dropboxd &
 
 # Reset pointer so that it isn't the X.
