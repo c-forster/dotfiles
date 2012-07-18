@@ -1,0 +1,14 @@
+URxvt*font:	xft:Monaco:size=10
+URxvt.scrollBar: off
+URxvt*termName:rxvt-256color
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+Emacs.pane.menubar.background: darkGrey
+Emacs.pane.menubar.foreground: black
+Emacs*menubar.margin: 0
+Emacs*shadowThickness: 1
