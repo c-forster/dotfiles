@@ -184,6 +184,10 @@
 		      (flyspell-mode)
 		      (longlines-mode))))
 
+;; This line required before the following in order to be able add
+;; other package repositories (elpa and marmalade).
+(require 'package)
+
 ;; adding respositories for emacs 24; csf-7/4/12
 ;; Add the original Emacs Lisp Package Archive
 (add-to-list 'package-archives

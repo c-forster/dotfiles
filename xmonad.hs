@@ -17,6 +17,9 @@ import XMonad.Hooks.EwmhDesktops   -- fullscreenEventHook fixes chrome fullscree
 import XMonad.Hooks.FadeInactive
 
 -- import XMonad.Layout.Reflect
+import XMonad.Layout.IM
+import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Reflect
 import XMonad.Layout.Gaps -- necessary for toggleStruts
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Grid
@@ -61,11 +64,10 @@ main = do
                                  ]
 
 myManageHook :: ManageHook
-myManageHook = composeAll . concat $
-             [ [className =? c     --> doCenterFloat | c <- myFloats ]
+myManageHook = composeAll
+             [ (role =? "gimp-toolbox" <||> role =? "gimp-image-window") --> (ask >>= doF . W.sink)
              ]
-             where                                  
-             myFloats = ["feh", "wicd-client.py","wicd-gtk.py", "wicd","wicd-client","monitor","monitor.py"]
+             where role = stringProperty "WM_WINDOW_ROLE"
                                  
 myLayout = tiled ||| Mirror tiled ||| Full  
  where  
