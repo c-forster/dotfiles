@@ -195,3 +195,8 @@
 ;; Add the user-contributed repository
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+;; These lines more elegantly distinguish multiple buffers which
+;; have  the same name.
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
